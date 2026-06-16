@@ -104,7 +104,29 @@ Bot:  "Ô tô vượt đèn đỏ bị phạt 4.000.000 – 6.000.000đ..."
 | Dataset | 6,000 QA pairs — luật giao thông VN |
 
 ---
+## Cấu trúc project
 
+```
+rag_traffic/
+├── src/
+│   ├── data_loader.py        # Load & validate CSV → Document
+│   ├── chunker.py            # 3-strategy chunking
+│   ├── embedder.py           # TF-IDF / neural embedding
+│   ├── vector_store.py       # ChromaDB + BM25 index
+│   ├── retriever.py          # Hybrid search + rerank
+│   ├── generator.py          # LLM generation + citation extraction
+│   ├── advanced_rag.py       # HyDE + CrossEncoder + Memory
+│   ├── evaluator.py          # Hit Rate / MRR / NDCG evaluation
+│   └── indexing_pipeline.py  # End-to-end build pipeline
+├── dataset/
+│   └── Dataset_6000.csv
+├── checkpoints/              # chunks.pkl, embeddings.npz (auto-generated)
+├── vectordb/                 # ChromaDB files (auto-generated)
+├── app.py                    # Streamlit UI
+├── .env.example
+├── requirements.txt
+└── README.md
+```
 ## Cài đặt và chạy
 
 ### 1. Clone và cài thư viện
@@ -157,38 +179,5 @@ python src/evaluator.py
 
 ---
 
-## Cấu trúc project
 
-```
-rag_traffic/
-├── src/
-│   ├── data_loader.py        # Load & validate CSV → Document
-│   ├── chunker.py            # 3-strategy chunking
-│   ├── embedder.py           # TF-IDF / neural embedding
-│   ├── vector_store.py       # ChromaDB + BM25 index
-│   ├── retriever.py          # Hybrid search + rerank
-│   ├── generator.py          # LLM generation + citation extraction
-│   ├── advanced_rag.py       # HyDE + CrossEncoder + Memory
-│   ├── evaluator.py          # Hit Rate / MRR / NDCG evaluation
-│   └── indexing_pipeline.py  # End-to-end build pipeline
-├── dataset/
-│   └── Dataset_6000.csv
-├── checkpoints/              # chunks.pkl, embeddings.npz (auto-generated)
-├── vectordb/                 # ChromaDB files (auto-generated)
-├── app.py                    # Streamlit UI
-├── .env.example
-├── requirements.txt
-└── README.md
-```
 
----
-
-## Hướng phát triển
-
-- [ ] Thay TF-IDF bằng `intfloat/multilingual-e5-small` để cải thiện dense search
-- [ ] Bật HyDE cho câu hỏi ngắn, mơ hồ
-- [ ] Thêm paraphrase queries vào eval set để đo generalization
-- [ ] FastAPI endpoint để tích hợp với frontend khác
-- [ ] Docker container cho deployment
-
----
