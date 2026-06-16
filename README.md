@@ -19,7 +19,6 @@ Evaluated trên 90 samples, stratified across 15 domain tags.
 > Dense search đạt 0% do dùng TF-IDF fallback thay vì neural embedding (`multilingual-e5-small`). Khi thay bằng neural model, dense search sẽ cạnh tranh được với hybrid.
 
 ---
-![Khung xác nhận kế hoạch](img/a.png)
 ##  Kiến trúc hệ thống
 
 ```
@@ -88,7 +87,7 @@ User: "Thế còn ô tô thì sao?"
 Bot:  "Ô tô vượt đèn đỏ bị phạt 4.000.000 – 6.000.000đ..."
 
 ```
-
+![Khung xác nhận kế hoạch](img/a.png)
 ---
 
 ## Tech Stack
