@@ -1,0 +1,29 @@
+# ── Core RAG pipeline ─────────────────────────────────
+chromadb>=0.5.0
+sentence-transformers>=2.7.0
+scikit-learn>=1.3.0
+pandas>=2.0.0
+numpy>=1.26.0
+
+# ── Bước 1: Generator — Free LLM APIs ────────────────
+groq>=0.9.0                   # Free: 14,400 req/day, 6k TPM (70B), 30k TPM (8B)
+google-generativeai>=0.7.0    # Free: 15 RPM, 1M TPM (Gemini Flash)
+
+# ── Bước 2: API layer ─────────────────────────────────
+fastapi>=0.111.0
+uvicorn[standard]>=0.29.0
+sse-starlette>=2.1.0
+python-dotenv>=1.0.0
+
+# ── Bước 3: Advanced RAG ──────────────────────────────
+# cross-encoder/ms-marco-MiniLM-L-6-v2 (~85MB, tự download)
+# sentence-transformers đã include cross-encoder
+
+# ── Evaluator ─────────────────────────────────────────
+langchain-groq>=0.1.0
+langchain-core>=0.2.0
+pydantic>=2.0.0
+
+# ── Dev / test ────────────────────────────────────────
+requests>=2.31.0
+httpx>=0.27.0

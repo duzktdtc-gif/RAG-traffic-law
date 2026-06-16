@@ -1,0 +1,16 @@
+.venv/
+__pycache__/
+*.pyc
+
+.env
+
+checkpoints/
+vectordb/
+
+.idea/
+.vscode/
+
+debug_log.txt
+*.log
+
+*.csv
